@@ -6,6 +6,7 @@ export function CreatTodo()
   const [title,settitle] = useState("");
   const [description,setdescription] = useState("");
 
+  const apiUrl = import.meta.env.VITE_API_URL;
 
     return <div style={{
         display:"flex",
@@ -21,7 +22,7 @@ export function CreatTodo()
     }}></input>
     <button onClick={()=>
     {
-        fetch("http://localhost:3000/todo",{
+        fetch(`${apiUrl}/todo`,{
             method:"POST",
             body:JSON.stringify({
                 title:title,
